@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import RaisedButton from 'material-ui/RaisedButton';
-import AppBar from 'material-ui/AppBar';
-import logo from './logo.svg';
-import './App.css';
+import classes from './App.css';
+import AppBar from './components/AppBar/AppBar';
+import Drawer from './components/Drawer/Drawer';
 
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <div>
-          <AppBar title='Near Earth Objects'/>
-          <RaisedButton label='default'/>
+        <div className={classes.app}>
+          <div className={classes.header}>
+            <AppBar/>
+          </div>
+
+          <div className={classes.sidebar}>
+            <Drawer/>
+          </div>
+
+          <div className={classes.main}>
+            webgl
+          </div>
         </div>
-      </MuiThemeProvider>
     );
   }
 }
