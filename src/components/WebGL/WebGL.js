@@ -8,6 +8,7 @@ class WebGL extends Component {
     addCube();
     animate();
     console.log('WebGL container mounted');
+    console.log(document.getElementById('webgl'));
   }
 
   render() {
