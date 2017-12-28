@@ -4,8 +4,8 @@ const getData = (url) => {
   const fetchPromiseFunction = (resolve, reject) => {
     fetch(url)
     .then(response => response.json())
-    .then(resolve);
-    .catch(error);
+    .then(resolve)
+    .catch(reject);
   };
   return new Promise(fetchPromiseFunction);
 };
