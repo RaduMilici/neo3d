@@ -10,9 +10,13 @@ const addCube = () => {
     cube = new Mesh( geometry, material );
     scene.add( cube );
 
-    cube.rotation.x += 0.1; 
-    cube.rotation.y += 0.1; 
+};
+
+const rotateCube = () => {
+
+    // cube.rotation.x += 0.1; 
+    // cube.rotation.y += 0.1; 
 
 };
 
-export { addCube };
+export { addCube, rotateCube };

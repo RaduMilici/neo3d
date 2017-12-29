@@ -1,10 +1,22 @@
-import { scene, camera, renderer } from './init3d';
-import { BoxGeometry, MeshBasicMaterial, Mesh } from 'three';
-import { addCube } from './cube';
+class Updater {
+    constructor(scene, camera, renderer) {
+        this.scene = scene;
+        this.camera = camera;
+        this.renderer = renderer;
+    }
 
-const animate = function () {
-    requestAnimationFrame( animate );
-    renderer.render(scene, camera);
+    start() {
+        this.animate();
+    }
+
+    stop() {
+
+    }
+
+    animate() {
+        requestAnimationFrame( this.animate );
+        this.renderer.render(this.scene, this.camera);
+    }
 };
 
-export { animate };
+export default Updater;

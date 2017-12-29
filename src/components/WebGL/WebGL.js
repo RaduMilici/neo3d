@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import classes from './WebGL.scss';
-import { start } from '../../3d/init3d';
-import { animate } from '../../3d/updater';
-import { addCube } from '../../3d/cube';
-import asteroid from '../../3d/asteroid';
+import App3d from '../../3d/App3d';
+//import { addCube } from '../../3d/cube';
+import Asteroid from '../../3d/asteroid';
 
 class WebGL extends Component {
   componentDidMount() {
-    console.log(asteroid);
-    start();
-    addCube();
-    asteroid.addAsteroid();
-    animate();
+    const app3d = new App3d();
+    app3d.start();
+    const a1 = new Asteroid({
+      x: 1,
+      y: 3, 
+      z: 1
+    });
+    const a2 = new Asteroid({
+      x: 3,
+      y: 1, 
+      z: 2
+    });
+    this.app3d.scene.add(a1, a2);
     console.log('WebGL container mounted');
-    console.log(document.getElementById('webgl'));
   }
 
   render() {

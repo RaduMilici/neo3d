@@ -1,23 +1,35 @@
-import { scene } from './init3d';
-import { SphereGeometry, MeshBasicMaterial, Mesh, Vector3 } from 'three';
+import { Scene, SphereGeometry, MeshBasicMaterial, Mesh, Vector3, Matrix4, Vector4, Object3D } from 'three';
 
-class Asteroid {
-    constructor () {
+class Asteroid extends Object3D {
+    constructor (position) {
+        super();
         this.geometry = null;
         this.material = null;
-        this.mesh = new Mesh();
-        this.position = new Vector3();
+        this.mesh = null;
+        this.position = position;
+        this.currentPos = null;
+        this.rotationMatrix = null;
+        let newPos = null;
+        this.addAsteroid();
     }
     
     addAsteroid() {
         this.geometry = new SphereGeometry(0.2, 20, 20 );
         this.material = new MeshBasicMaterial( { color: 0xff0000 } );
         this.mesh = new Mesh(this.geometry, this.material);
-        this.position.set( 1, 1, 0);
-
-        scene.add(this.mesh);
+        this.mesh.position.copy(this.position);
     }
+
+    // rotateAboutWorldAxis(object, axis, angle) {
+    //     this.rotationMatrix = new Matrix4();
+    //     this.rotationMatrix.makeRotationAxis( axis.normalize(), angle );
+    //     this.currentPos = new Vector4(object.position.x, object.position.y, object.position.z, 1.5);
+    //     this.newPos = this.currentPos.applyMatrix4(this.rotationMatrix);
+    //     object.position.x = this.newPos.x;
+    //     object.position.y = this.newPos.y;
+    //     object.position.z = this.newPos.z;
+    // }
     
 };
 
-export default new Asteroid();
+export default Asteroid;
