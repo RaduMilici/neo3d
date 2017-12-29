@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import updater from './updater';
+import Updater from './updater';
     
 class App3d {
     constructor(){
@@ -9,11 +9,11 @@ class App3d {
         this.renderer = new THREE.WebGLRenderer();
         this.renderer.setSize( this.container.offsetWidth, this.container.offsetHeight );
         this.container.appendChild(this.renderer.domElement);
-        console.log(updater);   
+        this.updater = new Updater(this.scene, this.camera, this.renderer);
     }
 
     start() {
-        //this.updater.start(this.scene, this.camera, this.renderer).bind(this);
+        this.updater.start();
     }
 }
 

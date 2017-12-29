@@ -1,12 +1,12 @@
 import { Scene, SphereGeometry, MeshBasicMaterial, Mesh, Vector3, Matrix4, Vector4, Object3D } from 'three';
 
 class Asteroid extends Object3D {
-    constructor (position) {
+    constructor (pos) {
         super();
         this.geometry = null;
         this.material = null;
         this.mesh = null;
-        this.position = position;
+        this.pos = pos;
         this.currentPos = null;
         this.rotationMatrix = null;
         let newPos = null;
@@ -17,7 +17,7 @@ class Asteroid extends Object3D {
         this.geometry = new SphereGeometry(0.2, 20, 20 );
         this.material = new MeshBasicMaterial( { color: 0xff0000 } );
         this.mesh = new Mesh(this.geometry, this.material);
-        this.mesh.position.copy(this.position);
+        this.mesh.position.copy(this.pos);
     }
 
     // rotateAboutWorldAxis(object, axis, angle) {

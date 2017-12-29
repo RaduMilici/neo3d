@@ -14,7 +14,7 @@ class Updater {
     }
 
     animate() {
-        requestAnimationFrame( this.animate );
+        requestAnimationFrame( this.animate.bind(this) );
         this.renderer.render(this.scene, this.camera);
     }
 };
