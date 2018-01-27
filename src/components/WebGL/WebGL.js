@@ -8,17 +8,13 @@ class WebGL extends Component {
   componentDidMount() {
     const app3d = new App3d();
     app3d.start();
-    const a1 = new Asteroid({
-      x: 1,
-      y: 1, 
-      z: 1
-    });
-    const a2 = new Asteroid({
-      x: 3,
-      y: 1, 
-      z: 2
-    });
-    app3d.scene.add(a1, a2);
+    const a1 = new Asteroid();
+    // const a2 = new Asteroid({
+    //   x: 3,
+    //   y: 1, 
+    //   z: 2
+    // });
+    app3d.scene.add(a1);
     console.log('WebGL container mounted');
   }
 
