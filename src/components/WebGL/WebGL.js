@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import classes from './WebGL.scss';
 import App3d from '../../3d/App3d';
-//import { addCube } from '../../3d/cube';
 import Asteroid from '../../3d/asteroid';
+import fetch from '../../fetch/fetch';
 
 class WebGL extends Component {
   componentDidMount() {
-    const app3d = new App3d();
-    app3d.start();
-    const a1 = new Asteroid({x: 0, y: 0, z: 0});
-    app3d.scene.add(a1);
-    app3d.camera.position.z = 10;
+    this.fetchData();
+    this.app3d = new App3d();
+    this.app3d.start();
+    this.app3d.camera.position.z = 10;
+  }
+
+  async fetchData () {
+    const response = await fetch();
+    const date = Object.keys(response.near_earth_objects);
+    const asteroids = response.near_earth_objects[date[0]];
+    asteroids.forEach(this.makeAsteroid.bind(this));
+  }
+
+  makeAsteroid () {
+    const a1 = new Asteroid({x: Math.random() * 10, y: Math.random() * 10, z: 0});
+    this.app3d.scene.add(a1);
   }
 
   render() {
