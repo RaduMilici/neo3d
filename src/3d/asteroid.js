@@ -8,12 +8,14 @@ class Asteroid extends Object3D {
         this.mesh = null;
         this.pos = pos;
         this.meshScale = this.getMeanScale(scale);
-        this
         this.addAsteroid();
+        console.log(this.scale);
     }
     
     getMeanScale(scale) {
-    this.scaleMin = scale;
+        let mean = (scale.estimated_diameter_max + scale.estimated_diameter_min) / 2;
+        console.log(mean);
+        return mean;
     }
 
     addAsteroid() {
@@ -22,7 +24,7 @@ class Asteroid extends Object3D {
         this.mesh = new Mesh(this.geometry, this.material);
         this.add(this.mesh);
         this.position.copy(this.pos);
-        this.scale.copy(this.meshScale);
+        this.scale.copy({x: this.meshScale, y: this.meshScale, z: this.meshScale});
     }
 };
 

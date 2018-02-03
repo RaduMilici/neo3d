@@ -9,7 +9,7 @@ class WebGL extends Component {
     this.fetchData();
     this.app3d = new App3d();
     this.app3d.start();
-    this.app3d.camera.position.z = 10;
+    this.app3d.camera.position.z = 1000;
   }
 
   async fetchData () {
@@ -20,7 +20,7 @@ class WebGL extends Component {
   }
 
   makeAsteroid (asteroid) {
-    const pos = {x: Math.random() * 10, y: Math.random() * 10, z: 0};
+    const pos = {x: Math.random() * 10, y: Math.random() * 1000, z: 0};
     const scale = asteroid.estimated_diameter.meters;
 
     const a1 = new Asteroid(pos, scale);
