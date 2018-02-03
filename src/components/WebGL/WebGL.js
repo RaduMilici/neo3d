@@ -19,8 +19,12 @@ class WebGL extends Component {
     asteroids.forEach(this.makeAsteroid.bind(this));
   }
 
+  randomFloat(min, max) {
+    return Math.random() * (max - min + 1) + min;
+  }
+
   makeAsteroid (asteroid) {
-    const pos = {x: Math.random() * 10, y: Math.random() * 1000, z: 0};
+    const pos = {x: this.randomFloat(-200, 200), y: this.randomFloat(-200, 200), z: this.randomFloat(-200, 200)};
     const scale = asteroid.estimated_diameter.meters;
 
     const a1 = new Asteroid(pos, scale);

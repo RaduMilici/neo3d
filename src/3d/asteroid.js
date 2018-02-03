@@ -12,10 +12,8 @@ class Asteroid extends Object3D {
         console.log(this.scale);
     }
     
-    getMeanScale(scale) {
-        let mean = (scale.estimated_diameter_max + scale.estimated_diameter_min) / 2;
-        console.log(mean);
-        return mean;
+    getMeanScale({ estimated_diameter_max, estimated_diameter_min }) {
+      return (estimated_diameter_max + estimated_diameter_min) / 2;
     }
 
     addAsteroid() {
