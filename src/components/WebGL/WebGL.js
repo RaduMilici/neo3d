@@ -3,6 +3,7 @@ import classes from './WebGL.scss';
 import App3d from '../../3d/App3d';
 import Asteroid from '../../3d/asteroid';
 import fetch from '../../fetch/fetch';
+import utils from '../../utils';
 
 class WebGL extends Component {
   componentDidMount() {
@@ -19,12 +20,8 @@ class WebGL extends Component {
     asteroids.forEach(this.makeAsteroid.bind(this));
   }
 
-  randomFloat(min, max) {
-    return Math.random() * (max - min + 1) + min;
-  }
-
   makeAsteroid (asteroid) {
-    const pos = {x: this.randomFloat(-200, 200), y: this.randomFloat(-200, 200), z: this.randomFloat(-200, 200)};
+    const pos = {x: utils.randomFloat(-200, 200), y: utils.randomFloat(-200, 200), z: utils.randomFloat(-200, 200)};
     const scale = asteroid.estimated_diameter.meters;
 
     const a1 = new Asteroid(pos, scale);
