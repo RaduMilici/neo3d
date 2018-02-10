@@ -7,7 +7,7 @@ import utils from '../../utils';
 
 class WebGL extends Component {
   componentDidMount() {
-    this.fetchData();
+    // this.fetchData();
     this.app3d = new App3d();
     this.app3d.start();
     this.app3d.camera.position.z = 1000;

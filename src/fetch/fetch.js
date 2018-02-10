@@ -1,4 +1,5 @@
 const url = 'https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=DEMO_KEY';
+const vapor = 'https://asteroidsserverside-dev.vapor.cloud/asteroidList/2018-01-07/2018-01-10/DEMO_KEY';
 
 const getData = () => {
   const fetchPromiseFunction = (resolve, reject) => {
@@ -10,4 +11,4 @@ const getData = () => {
   return new Promise(fetchPromiseFunction);
 };
 
-export default getData;  
+export default getData;
