@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import classes from './WebGL.scss';
 import App3d from '../../3d/App3d';
 import Asteroid from '../../3d/asteroid';
+import Earth from '../../3d/earth';
 import fetch from '../../fetch/fetch';
 import utils from '../../utils';
 
 class WebGL extends Component {
   componentDidMount() {
-    // this.fetchData();
+    //this.fetchData();
     this.app3d = new App3d();
     this.app3d.start();
     this.app3d.camera.position.z = 1000;
+    this.app3d.scene.add(new Earth());
   }
 
   async fetchData () {

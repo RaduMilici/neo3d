@@ -1,8 +1,9 @@
 class Updater {
-    constructor(scene, camera, renderer) {
+    constructor(scene, camera, renderer, controls) {
         this.scene = scene;
         this.camera = camera;
         this.renderer = renderer;
+        this.controls = controls;
     }
 
     start() {
