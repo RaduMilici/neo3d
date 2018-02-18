@@ -34,9 +34,7 @@ class WebGL extends Component {
 
   makeRaycaster() {
     this.raycaster = new Raycaster(this.app3d.camera, this.app3d.container);
-    window.addEventListener('mousedown', () => {
-      this.raycaster.cast();
-    });
+    window.addEventListener('mousedown', (event) => { this.raycaster.cast(event); });
   }
 
   render() {

@@ -14,6 +14,7 @@ class _Raycaster {
         this.mouse.y = - ( event.clientY / this.container.clientHeight ) * 2 + 1;
         this.raycaster.setFromCamera( this.mouse, this.camera );
         const intersects = this.raycaster.intersectObjects(this.onClickEntityes, false);
+        console.log('cast');
         if (intersects) {
             return intersects;
         }
