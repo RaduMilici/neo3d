@@ -10,11 +10,14 @@ class _Raycaster {
     }
 
     cast(event) {
-        this.mouse.x = ( event.clientX / this.container.clientWidth ) * 2 - 1;
-        this.mouse.y = - ( event.clientY / this.container.clientHeight ) * 2 + 1;
+        var bounds = event.target.getBoundingClientRect();
+        var x = event.clientX - bounds.left;
+        var y = event.clientY - bounds.top;
+        this.mouse.x = (x / this.container.clientWidth) * 2 - 1;
+        this.mouse.y = -(y / this.container.clientHeight) * 2 + 1;
         this.raycaster.setFromCamera( this.mouse, this.camera );
-        const intersects = this.raycaster.intersectObjects(this.onClickEntityes, true);
-            return intersects;
+        const meshes = this.onClickEntityes.map(entity => entity.mesh);
+        return this.raycaster.intersectObjects(meshes);
       }
 
 }

@@ -1,10 +1,9 @@
 import * as THREE from 'three';
 import Updater from './updater';
-import OrbitControls from 'three-orbit-controls';
+const OrbitControls = require('three-orbit-controls')(THREE);
 
 class App3d {
     constructor() {
-        const OrbitControls = require('three-orbit-controls')(THREE);
         this.container = document.getElementById('webgl');
         this.scene = new THREE.Scene(); ;
         this.camera = new THREE.PerspectiveCamera(75, this.container.offsetWidth/this.container.offsetHeight, 0.1, 1000);
