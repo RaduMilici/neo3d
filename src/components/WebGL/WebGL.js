@@ -15,6 +15,7 @@ class WebGL extends Component {
     this.app3d.camera.position.z = 1000;
     this.app3d.scene.add(new Earth());
     this.makeRaycaster();
+    console.log(this.app3d.scene);
   }
 
   async fetchData () {
@@ -34,7 +35,11 @@ class WebGL extends Component {
 
   makeRaycaster() {
     this.raycaster = new Raycaster(this.app3d.camera, this.app3d.container);
-    window.addEventListener('mousedown', (event) => { this.raycaster.cast(event); });
+    this.raycaster.onClickEntityes.push(this.app3d.scene.children[0]);
+    window.addEventListener('mousedown', (event) => { 
+      const intersected = this.raycaster.cast(event); 
+        console.log(intersected);
+    });
   }
 
   render() {
